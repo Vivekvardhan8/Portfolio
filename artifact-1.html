@@ -98,5 +98,41 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script>
+  (function () {
+    var viewer = document.querySelector('.slide-viewer');
+    if (!viewer) return;
+
+    var img = viewer.querySelector('.slide-stage img');
+    var counter = viewer.querySelector('.slide-counter');
+    var progressBar = viewer.querySelector('.slide-progress-bar');
+    var prevBtn = viewer.querySelector('.slide-nav-btn.prev');
+    var nextBtn = viewer.querySelector('.slide-nav-btn.next');
+    var total = parseInt(viewer.getAttribute('data-total'), 10) || 1;
+    var current = 1;
+
+    function render() {
+      img.src = 'images/timeline-slides/slide-' + current + '.jpg';
+      img.alt = 'Slide ' + current + ' of ' + total;
+      var padCurrent = current < 10 ? '0' + current : '' + current;
+      var padTotal = total < 10 ? '0' + total : '' + total;
+      counter.textContent = padCurrent + ' / ' + padTotal;
+      progressBar.style.width = (current / total) * 100 + '%';
+    }
+
+    function goPrev() { current = current > 1 ? current - 1 : total; render(); }
+    function goNext() { current = current < total ? current + 1 : 1; render(); }
+
+    prevBtn.addEventListener('click', goPrev);
+    nextBtn.addEventListener('click', goNext);
+
+    viewer.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') goPrev();
+      if (e.key === 'ArrowRight') goNext();
+    });
+
+    render();
+  })();
+</script>
 </body>
 </html>
