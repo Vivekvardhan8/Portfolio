@@ -649,6 +649,88 @@ section { padding: 80px 0; }
 .featured-media .media-caption a { color: var(--accent-teal); }
 .featured-media .media-caption a:hover { color: var(--accent-copper); }
 
+/* In-page slide viewer (pptx replacement) */
+.slide-viewer { outline: none; }
+
+.slide-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #0b132b;
+}
+
+.slide-stage img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.slide-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(10, 14, 20, 0.72);
+  border: 1px solid var(--border-strong);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+.slide-nav-btn:hover { border-color: var(--accent-copper); color: var(--accent-copper); }
+.slide-nav-btn.prev { left: 14px; }
+.slide-nav-btn.next { right: 14px; }
+
+.slide-footer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.slide-counter {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.slide-progress {
+  flex-grow: 1;
+  height: 3px;
+  background: var(--bg-surface-2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.slide-progress-bar {
+  height: 100%;
+  background: var(--accent-copper);
+  transition: width 0.2s ease;
+}
+
+.slide-download-link {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--accent-teal);
+  white-space: nowrap;
+}
+.slide-download-link:hover { color: var(--accent-copper); }
+
+@media (max-width: 500px) {
+  .slide-nav-btn { width: 34px; height: 34px; }
+  .slide-footer { flex-wrap: wrap; }
+  .slide-progress { order: 3; flex-basis: 100%; }
+}
+
 .btn-chatbot {
   display: inline-flex;
   align-items: center;
