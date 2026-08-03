@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Machine Learning vs. Deep Learning — Vivek Vardhan Mamidala</title>
+<meta name="description" content="A real-world comparison of machine learning and deep learning — when each approach is the right tool, and when it's the wrong one.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="index.html" class="logo"><span class="cursor"></span>vivek@dev:~$</a>
+    <button class="nav-toggle" aria-label="Toggle navigation">menu</button>
+    <ul class="nav-links">
+      <li><a href="index.html">./home</a></li>
+      <li><a href="about.html">./about</a></li>
+      <li><a href="artifact-1.html">./artifact-01</a></li>
+      <li><a href="artifact-2.html">./artifact-02</a></li>
+      <li><a href="artifact-3.html">./artifact-03</a></li>
+      <li><a href="artifact-4.html" class="active">./artifact-04</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <section class="artifact-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">home</a> / <a href="index.html">artifacts</a> / ml-vs-deep-learning</div>
+      <span class="artifact-id">ART / 04</span>
+      <h1>Machine Learning vs. Deep Learning</h1>
+      <p class="artifact-lede">A real-world comparison — matching the tool to the job, not the hype</p>
+    </div>
+  </section>
+
+  <section class="artifact-body-section">
+    <div class="container artifact-body">
+      <div>
+        <div class="artifact-block">
+          <div class="block-label">Objective</div>
+          <p>Machine learning and deep learning often get talked about as if they're the same thing, but they solve problems in fundamentally different ways. The goal of this assignment was to differentiate the two by analyzing real-world case studies — picking one problem suited to classic machine learning and one suited to deep learning, and explaining not just why each chosen approach fits, but why the other would be the wrong tool for the job.</p>
+        </div>
+
+        <div class="artifact-block">
+          <div class="block-label">The Two Case Studies</div>
+          <div class="reflection-columns">
+            <div>
+              <div class="reflection-col-label">Machine Learning · House Price Prediction</div>
+              <ul class="check-list">
+                <li class="check-item">
+                  <span class="led-dot teal"></span>
+                  <div class="item-body">
+                    <div class="item-title">Where it shows up</div>
+                    <div class="item-desc">Automated valuation models (AVMs) behind real-estate estimates and mortgage lending — regression run on structured housing data.</div>
+                  </div>
+                </li>
+                <li class="check-item">
+                  <span class="led-dot teal"></span>
+                  <div class="item-body">
+                    <div class="item-title">Why ML fits</div>
+                    <div class="item-desc">The useful signal is already in clean, labeled features — square footage, bedrooms, lot size, location, year built. Models train fast, work on smaller datasets, and stay explainable, which matters when a lender must justify a valuation.</div>
+                  </div>
+                </li>
+                <li class="check-item">
+                  <span class="led-dot amber"></span>
+                  <div class="item-body">
+                    <div class="item-title">Why DL is wrong here</div>
+                    <div class="item-desc">Its strength is extracting features from messy raw data — but housing data is already structured, so the extra layers have nothing to discover. It also needs far more data and compute, and its black-box nature is a real problem under financial regulation.</div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <div class="reflection-col-label">Deep Learning · Image Recognition</div>
+              <ul class="check-list">
+                <li class="check-item">
+                  <span class="led-dot teal"></span>
+                  <div class="item-body">
+                    <div class="item-title">Where it shows up</div>
+                    <div class="item-desc">Apple's Face ID — a convolutional neural network reads the raw image of your face and decides whether it's really you.</div>
+                  </div>
+                </li>
+                <li class="check-item">
+                  <span class="led-dot teal"></span>
+                  <div class="item-body">
+                    <div class="item-title">Why DL fits</div>
+                    <div class="item-desc">A photo is just a grid of pixels with no clean feature list a human could hand over. A CNN learns features on its own — edges first, then complex facial structure across its layers — and there's abundant image data to train on.</div>
+                  </div>
+                </li>
+                <li class="check-item">
+                  <span class="led-dot amber"></span>
+                  <div class="item-body">
+                    <div class="item-title">Why ML is wrong here</div>
+                    <div class="item-desc">Traditional ML depends on humans defining features first, which is nearly impossible with raw pixels. Simpler models like logistic regression or SVMs can't capture the spatial, layered patterns in an image — accuracy would be far too low to trust for unlocking a phone.</div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="artifact-block">
+          <div class="block-label">Process</div>
+          <p>I selected two contrasting problems from the lesson — house price prediction as the machine learning case and image recognition as the deep learning case. For each, I examined how it appears in the real world, why the chosen approach makes sense given the shape of the data, and why the alternative approach would fail. The comparison was structured around three lenses: the nature of the data (structured features versus raw pixels), the practical constraints (dataset size, compute, training time), and explainability — which turns out to be decisive in a regulated industry like lending.</p>
+        </div>
+
+        <div class="artifact-block">
+          <div class="block-label">Value Proposition</div>
+          <p>The main takeaway is that neither approach is automatically "better" — it comes down to the problem and the kind of data you're working with. When the data is structured and the features are obvious, traditional machine learning is faster, cheaper, and easier to explain. When the data is raw and messy, deep learning earns its extra complexity by finding patterns no human could hand-code. Choosing well is less about which is more advanced and more about matching the tool to the job — a judgment that underpins any real AI/ML system design.</p>
+        </div>
+      </div>
+
+      <aside class="artifact-sidebar">
+        <div class="sidebar-box">
+          <div class="box-title">Tools Used</div>
+          <div class="tool-tag-list">
+            <span class="tool-tag">Microsoft Word</span>
+            <span class="tool-tag">Case-Study Analysis</span>
+          </div>
+        </div>
+        <div class="sidebar-box">
+          <div class="box-title">Full Report</div>
+          <a href="files/ML-vs-DL-Report.docx" class="sidebar-link" download>↓ Download report (.docx)</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="artifact-nav-footer">
+      <a href="artifact-3.html">← Artifact 03</a>
+      <a href="index.html">Back to home →</a>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span>© 2026 Vivek Vardhan Mamidala</span>
+    <span><a href="mailto:vivekvardhan166@gmail.com">vivekvardhan166@gmail.com</a> · 513-435-2144</span>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
