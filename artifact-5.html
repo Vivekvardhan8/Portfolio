@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thinking in Systems — Vivek Vardhan Mamidala</title>
+<meta name="description" content="Working through real-world ML data challenges — missing data, class imbalance, and concept drift — with production-grade judgment.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="index.html" class="logo"><span class="cursor"></span>vivek@dev:~$</a>
+    <button class="nav-toggle" aria-label="Toggle navigation">menu</button>
+    <ul class="nav-links">
+      <li><a href="index.html">./home</a></li>
+      <li><a href="about.html">./about</a></li>
+      <li><a href="artifact-1.html">./artifact-01</a></li>
+      <li><a href="artifact-2.html">./artifact-02</a></li>
+      <li><a href="artifact-3.html">./artifact-03</a></li>
+      <li><a href="artifact-4.html">./artifact-04</a></li>
+      <li><a href="artifact-5.html" class="active">./artifact-05</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <section class="artifact-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">home</a> / <a href="index.html">artifacts</a> / thinking-in-systems</div>
+      <span class="artifact-id">ART / 05</span>
+      <h1>Thinking in Systems</h1>
+      <p class="artifact-lede">Working through real-world ML data challenges — the issues that actually break models in production</p>
+    </div>
+  </section>
+
+  <section class="artifact-body-section">
+    <div class="container artifact-body">
+      <div>
+        <div class="artifact-block">
+          <div class="block-label">Objective</div>
+          <p>Rather than defining concepts, this artifact shows me reasoning through three progressively harder data challenges an ML engineer faces in the real world — and refining my approach based on feedback at each step. It's built as an AI-guided coaching session across three escalating scenarios, and it's written for a technical audience: recruiters, hiring managers, and fellow AI/ML practitioners who care less about textbook definitions and more about how someone thinks when a model misbehaves.</p>
+        </div>
+
+        <div class="artifact-block">
+          <div class="block-label">The Three Scenarios</div>
+          <p style="margin-bottom: 20px;">Each scenario escalates in difficulty, and in each one the naive move turns out to be the trap:</p>
+
+          <ol class="phase-list">
+            <li class="phase-item">
+              <span class="phase-num">01</span>
+              <div>
+                <div class="phase-title">Missing Data — Customer Churn</div>
+                <p class="phase-desc">With 15% of tenure values missing, I chose imputation over dropping rows to avoid losing 1,500 records. I planned to confirm the distribution before choosing median versus mean, added a "was-missing" flag to preserve the signal that a value was absent, and compared strategies using cross-validation rather than training accuracy.</p>
+                <p class="phase-outcome">→ Insight: inspect the data before assuming a fix</p>
+              </div>
+            </li>
+            <li class="phase-item">
+              <span class="phase-num">02</span>
+              <div>
+                <div class="phase-title">Extreme Class Imbalance — Fraud Detection</div>
+                <p class="phase-desc">With only 0.5% fraud, I flagged the "99.5% accuracy" trap immediately and switched to precision, recall, and PR-AUC. I weighed SMOTE against class weights, used stratified splitting to preserve the rare class, and tuned the decision threshold to what the fraud team could realistically absorb operationally.</p>
+                <p class="phase-outcome">→ Insight: match the metric to the problem, not the default</p>
+              </div>
+            </li>
+            <li class="phase-item">
+              <span class="phase-num">03</span>
+              <div>
+                <div class="phase-title">Concept Drift — Credit Risk</div>
+                <p class="phase-desc">When a deployed model degraded, I separated two layered problems — economic drift versus an unseen gig-worker representation gap. I proposed recency-weighted retraining plus feature rework, and added continuous drift monitoring (PSI / KL divergence) with an automated retraining trigger.</p>
+                <p class="phase-outcome">→ Insight: design for change; a deploy is never "finished"</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <div class="artifact-block">
+          <div class="block-label">Value Proposition</div>
+          <p>This artifact shows I can move past textbook definitions into production reality: diagnosing why a model fails, matching the technique to the actual problem instead of reaching for the fanciest option, and designing systems that expect change rather than assuming a one-time deploy. It's the applied counterpart to the conceptual ML-versus-DL analysis — where that piece asks "which tool fits?", this one asks "what do you do when the tool you shipped starts to break?"</p>
+        </div>
+
+        <div class="artifact-block">
+          <div class="block-label">Reflection</div>
+          <div class="quote-callout">The naive move is almost always the trap — casually dropping missing data, trusting accuracy, or treating a deployed model as finished.</div>
+          <p>The through-line I discovered across all three scenarios is that the real work is inspecting before assuming, matching the tool to the problem, and building for the fact that conditions will shift. Each scenario rewarded restraint over reflex: the fastest answer — drop the rows, trust the accuracy score, ship and move on — was consistently the one that would have quietly broken the system later.</p>
+        </div>
+      </div>
+
+      <aside class="artifact-sidebar">
+        <div class="sidebar-box">
+          <div class="box-title">Audience</div>
+          <p style="color: var(--text-secondary); font-size: 0.86rem; margin: 0;">Technical recruiters, hiring managers, and AI/ML practitioners</p>
+        </div>
+        <div class="sidebar-box">
+          <div class="box-title">Format</div>
+          <p style="color: var(--text-secondary); font-size: 0.86rem; margin: 0;">AI-guided coaching session — three escalating scenarios</p>
+        </div>
+        <div class="sidebar-box">
+          <div class="box-title">Tools Used</div>
+          <div class="tool-tag-list">
+            <span class="tool-tag">AI Coaching Platform</span>
+            <span class="tool-tag">Applied ML Reasoning</span>
+          </div>
+        </div>
+        <div class="sidebar-box">
+          <div class="box-title">Concepts Applied</div>
+          <div class="tool-tag-list">
+            <span class="tool-tag">Imputation</span>
+            <span class="tool-tag">PR-AUC</span>
+            <span class="tool-tag">SMOTE</span>
+            <span class="tool-tag">Stratified Splits</span>
+            <span class="tool-tag">Concept Drift</span>
+            <span class="tool-tag">PSI / KL Divergence</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="artifact-nav-footer">
+      <a href="artifact-4.html">← Artifact 04</a>
+      <a href="index.html">Back to home →</a>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span>© 2026 Vivek Vardhan Mamidala</span>
+    <span><a href="mailto:vivekvardhan166@gmail.com">vivekvardhan166@gmail.com</a> · 513-435-2144</span>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
